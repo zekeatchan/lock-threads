@@ -37,7 +37,8 @@ class App {
 
     const threadTypes = processOnly || ['issue', 'pr', 'discussion'];
     for (const item of threadTypes) {
-      const threads = await this.lock(item);
+      const threads = await this.lock('issue');
+      // const threads = await this.lock(item);
 
       core.debug(`Setting output (${item}s)`);
       if (threads.length) {
